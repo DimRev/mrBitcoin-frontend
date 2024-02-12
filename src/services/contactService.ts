@@ -6,14 +6,14 @@ export const contactService = {
   getEmptyContact,
 }
 
-type Contact = {
+export type Contact = {
   _id: string,
   name: string,
   email: string,
   phone: string,
 }
 
-type FilterBy = {
+export type FilterBy = {
   term: string,
 }
 
