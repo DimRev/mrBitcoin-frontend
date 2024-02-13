@@ -14,6 +14,10 @@ import AppHeader from './components/AppHeader.vue'
 import { User, userService } from './services/userService.ts'
 import { bitcoinService } from './services/bitcoinService.ts'
 import { ref, onMounted } from 'vue'
+import { useContactsStore } from './store/contactsStore'
+import { contactService } from './services/contactService'
+
+const contactsStore = useContactsStore()
 
 const user = ref<User | null>(null)
 const exchangeRate = ref<number | null>(null)
@@ -21,10 +25,16 @@ const exchangeRate = ref<number | null>(null)
 onMounted(() => {
   user.value = userService.getUser()
   loadExchangeRate()
+  loadContacts()
 })
 
 async function loadExchangeRate() {
   exchangeRate.value = await bitcoinService.getRate()
+}
+
+async function loadContacts() {
+  const contacts = await contactService.getContacts()
+  contactsStore.setContacts(contacts)
 }
 </script>
 
