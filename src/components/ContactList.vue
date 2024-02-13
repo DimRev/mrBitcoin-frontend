@@ -3,6 +3,8 @@
     <ul>
       <li v-for="contact in contacts" :key="contact._id">
         <ContactPreview :contact="contact" />
+        <button @click="onDetails(contact._id)">Details</button>
+        <button @click="onDelete(contact._id)">Delete</button>
       </li>
     </ul>
   </section>
@@ -15,6 +17,17 @@ import ContactPreview from './ContactPreview.vue'
 defineProps<{
   contacts: Contact[]
 }>()
+const emit = defineEmits<{
+  (e: 'delete', id: string): void
+  (e: 'details', id: string): void
+}>()
+
+function onDelete(id: string) {
+  emit('delete', id)
+}
+function onDetails(id: string) {
+  emit('details', id)
+}
 </script>
 
 <style lang="scss">
