@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeViewVue from '../views/HomeView.vue'
 import ContactsViewVue from '../views/ContactsView.vue'
 import StatsViewVue from '../views/StatsView.vue'
+import ContactDetailsViewVue from '../views/ContactDetailsView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: ContactsViewVue
+    },
+    {
+      path: '/contact/:id',
+      name: 'contact-details',
+      component: ContactDetailsViewVue
     },
     {
       path: '/stats',
