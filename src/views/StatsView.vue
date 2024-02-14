@@ -28,6 +28,8 @@ const {
 <style scoped lang="scss">
 .stats-section {
   display: flex;
+  justify-content: center;
+  align-items: center;
   .chart {
     flex: 1;
   }
