@@ -15,3 +15,17 @@ function onSubmit() {
   emit('submit-term', text.value)
 }
 </script>
+
+<style scoped lang="scss">
+form {
+  display: flex;
+  justify-content: center;
+  input {
+    width: 70%;
+    padding-inline: 12px;
+    padding-block: 8px;
+    border-radius: 9999px;
+    outline: none;
+  }
+}
+</style>
