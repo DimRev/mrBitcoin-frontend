@@ -12,8 +12,18 @@ const user: User = {
 
 export const userService = {
   getUser,
+  transferFunds,
+  getTransactions,
 }
 
 function getUser(): User {
   return user
+}
+
+function transferFunds() {
+
+}
+
+function getTransactions() {
+
 }
