@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { Contact, FilterBy } from '../services/contactService'
+import { Contact, FilterBy, contactService } from '../services/contactService'
 
 type ContactStoreState = {
   contacts: Contact[]
@@ -29,7 +29,8 @@ export const useContactsStore = defineStore('contact', {
     },
   },
   actions: {
-    setContacts(contacts: Contact[]) {
+    async setContacts() {
+      const contacts = await contactService.getContacts()
       this.contacts = contacts
     },
     selectContact(id: string | null) {

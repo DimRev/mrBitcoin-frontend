@@ -4,11 +4,11 @@ export const bitcoinService = {
   getAvgBlockSize,
 }
 
-type Values = {
+export type Values = {
   x: number,
   y: number,
 }
-type ApiResponse = {
+export type ApiResponse = {
   status: string,
   name: string,
   unit: string,
@@ -1246,7 +1246,7 @@ const avgBlockSize = {
   ],
 }
 
-async function getRate():Promise<number> {
+async function getRate(): Promise<number> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(exchangeRate)
@@ -1254,7 +1254,7 @@ async function getRate():Promise<number> {
   })
 }
 
-function getMarketPriceHistory():Promise<ApiResponse> {
+function getMarketPriceHistory(): Promise<ApiResponse> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(marketPriceHistory)
@@ -1262,7 +1262,7 @@ function getMarketPriceHistory():Promise<ApiResponse> {
   })
 }
 
-function getAvgBlockSize():Promise<ApiResponse> {
+function getAvgBlockSize(): Promise<ApiResponse> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(avgBlockSize)
